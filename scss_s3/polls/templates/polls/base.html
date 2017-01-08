@@ -1,0 +1,19 @@
+{% load sekizai_tags %}
+{% load staticfiles %}
+<html>
+<head>
+    <title>Test Base</title>
+    {% addtoblock 'css' %}
+        <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+        <style type="text/x-scss">
+            @import 'scss/_mixin.scss';
+            @import 'scss/_variable.scss';
+            @import 'scss/_mobile.scss';
+        </style>
+    {% endaddtoblock %}
+    {% render_block 'css' postprocessor 'compressor.contrib.sekizai.compress' %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
